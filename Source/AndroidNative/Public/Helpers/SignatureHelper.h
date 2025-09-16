@@ -1,4 +1,4 @@
-﻿// Georgy Treshchev 2024.
+// Georgy Treshchev 2024.
 
 #pragma once
 
@@ -74,8 +74,12 @@ namespace SignatureHelper
 
 	/** Get the signature for the type contained in TArray */
 	template <typename PassedType>
-	static FORCEINLINE typename TEnableIf<TIsTArray<PassedType>::Value, const ANSICHAR*>::Type
-	GetTypeSignature() { return const_cast<ANSICHAR*>(StringCast<ANSICHAR>(*FString::Printf(TEXT("[%s"), *FString(GetTypeSignature<typename PassedType::ElementType>()))).Get()); }
+	static FORCEINLINE typename TEnableIf<TIsTArray<PassedType>::Value, FString>::Type
+	GetTypeSignature()
+	{
+		// Build and return a stable FString (e.g., "[I" for TArray<int32>)
+		return FString::Printf(TEXT("[%s"), *FString(GetTypeSignature<typename PassedType::ElementType>()));
+	}
 
 	/**
 	 * In case no arguments and type are specified
