@@ -9,7 +9,7 @@ This is my attempt to keep this plugin running even though official support has 
 | Engine Version | Status | Notes |
 |---------------|--------|-------|
 | 5.5.4         | ✅ Yes | Confirmed working |
-| 5.6.1         | ❓ Unknown | Not yet tested |
+| 5.6.1         | 🟠 Compiles | Not yet tested |
 | 5.7 Preview 1 | ❓ Unknown | Not yet tested |
 
 ## Requirements
